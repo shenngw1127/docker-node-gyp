@@ -9,8 +9,8 @@ RUN npm install -g node-gyp@3.6
 RUN npm install -g node-sass@4.8
 
 USER node
-ARG sonar-scanner-cli-version=3.1.0.1141
-RUN curl --insecure -o ~/sonar-scanner-cli.zip -L https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${sonar-scanner-cli-version}-linux.zip
+ENV SONAR_SCANNER_CLI_VERSION=3.1.0.1141
+RUN curl --insecure -o ~/sonar-scanner-cli.zip -L https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_CLI_VERSION}-linux.zip
 RUN ls -al ~/
 RUN mkdir -p ~/.sonar/ \
     && unzip ~/sonar-scanner-cli.zip -d ~/.sonar/
